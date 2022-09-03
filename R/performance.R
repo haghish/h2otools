@@ -1,6 +1,6 @@
 # R define h2o.performance2 function
 # ============================================================
-h2o.performance2 <- function(perf, conf, print = TRUE) {
+performance <- function(perf, conf, print = TRUE) {
   auc <- perf@metrics$AUC                                # auc
   accuracy <- conf$overall[1]                            # accuracy
   prauc <- perf@metrics$pr_auc                           # aucpr

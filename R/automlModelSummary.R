@@ -1,16 +1,16 @@
 # R define h2o.automlModelSummary function
 # ============================================================
-h2o.automlModelSummary <- function(model) {
+automlModelSummary <- function(model) {
   algorithm <- model@algorithm
-  
+
   # Deeplearning model summary
   # ============================================================
   if (algorithm == "deeplearning") {
-    
+
     # Model ID
     # --------------------
     model_id <- unlist(model@model_id)
-    
+
     # Model Parameters
     # --------------------
     activation <- unlist(model@parameters$activation)
@@ -49,11 +49,11 @@ h2o.automlModelSummary <- function(model) {
     if (is.null(rate_annealing)) rate_annealing <- NA
     rate_decay <- unlist(model@parameters$rate_decay)
     if (is.null(rate_decay)) rate_decay <- NA
-    
-    
-    
-    
-    
+
+
+
+
+
     # Stopping Rules
     # --------------------
     stopping_metric <- unlist(model@parameters$stopping_metric)
@@ -62,34 +62,34 @@ h2o.automlModelSummary <- function(model) {
     if (is.null(stopping_tolerance)) stopping_tolerance <- NA
     stopping_rounds <- unlist(model@parameters$stopping_rounds)
     if (is.null(stopping_rounds)) stopping_rounds <- NA
-    
+
     res <- c(model_id, activation, hidden, epochs,
              epsilon, input_dropout_ratio, hidden_dropout_ratios,
              hidden_dropout_ratios,
              categorical_encoding, l1, l2,
-             seed, distribution, 
+             seed, distribution,
              stopping_metric, stopping_tolerance, stopping_rounds)
-    
+
     names(res) <- c("model_id", "activation", "hidden", "epochs",
                     "epsilon", "input_dropout_ratio", "hidden_dropout_ratios",
                     "hidden_dropout_ratios",
                     "categorical_encoding", "l1","l2",
-                    "seed", "distribution", 
+                    "seed", "distribution",
                     "stopping_metric", "stopping_tolerance", "stopping_rounds")
-    
+
     return(as.data.frame(t(res)))
   }
-  
-  
-  
+
+
+
   # GBM model summary
   # ============================================================
   if (algorithm == "gbm") {
-    
+
     # Model ID
     # --------------------
     model_id <- unlist(model@model_id)
-    
+
     # Model Parameters
     # --------------------
     ntrees <- unlist(model@parameters$ntree)
@@ -108,24 +108,24 @@ h2o.automlModelSummary <- function(model) {
     if (is.null(col_sample_rate_per_tree)) col_sample_rate_per_tree <- NA
     min_split_improvement <- unlist(model@parameters$min_split_improvement)
     if (is.null(min_split_improvement)) min_split_improvement <- NA
-    
+
     # Stopping Rules
     # --------------------
     stopping_metric <- unlist(model@parameters$stopping_metric)
     if (is.null(stopping_metric)) stopping_metric <- NA
     stopping_tolerance <- unlist(model@parameters$stopping_tolerance)
     if (is.null(stopping_tolerance)) stopping_tolerance <- NA
-    
+
     res <- c(model_id, ntrees, max_depth, min_rows,
              sample_rate, col_sample_rate_per_tree, min_split_improvement,
-             seed, distribution, 
+             seed, distribution,
              stopping_metric, stopping_tolerance)
-    
+
     names(res) <- c("model_id", "ntrees", "max_depth", "min_rows",
                     "sample_rate", "col_sample_rate_per_tree", "min_split_improvement",
-                    "seed", "distribution", 
+                    "seed", "distribution",
                     "stopping_metric", "stopping_tolerance")
-    
+
     return(as.data.frame(t(res)))
   }
 }
