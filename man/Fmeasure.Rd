@@ -25,7 +25,7 @@ Calculates F-Measure for any given value of Beta
 
 \donttest{
 library(h2o)
-h2o.init()
+h2o.init(ignore_config = TRUE)
 prostate_path <- system.file("extdata", "prostate.csv", package = "h2o")
 prostate <- h2o.importFile(path = prostate_path, header = TRUE)
 y <- "CAPSULE"
@@ -33,13 +33,16 @@ prostate[,y] <- as.factor(prostate[,y])  #convert to factor for classification
 aml <- h2o.automl(y = y, training_frame = prostate, max_runtime_secs = 30)
 
 # evaluate the model performance
-perf <- h2o.performance(aml@leader)
+perf <- h2o.performance(aml@leader, xval = TRUE)
 
 # evaluate F-Measure for a Beta = 3
 Fmeasure(perf, beta = 3, max = TRUE)
 
 # evaluate F-Measure for a Beta = 1.5
 Fmeasure(perf, beta = 1.5, max = TRUE)
+
+# evaluate F-Measure for a Beta = 4
+Fmeasure(perf, beta = 4, max = TRUE)
 
 }
 }

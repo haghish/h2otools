@@ -10,7 +10,7 @@
 #' @examples
 #' \donttest{
 #' library(h2o)
-#' h2o.init()
+#' h2o.init(ignore_config = TRUE)
 #' prostate_path <- system.file("extdata", "prostate.csv", package = "h2o")
 #' prostate <- h2o.importFile(path = prostate_path, header = TRUE)
 #' y <- "CAPSULE"
@@ -18,6 +18,7 @@
 #' aml <- h2o.automl(y = y,
 #'                   training_frame = prostate,
 #'                   include_algos = "GLM",
+#'                   max_models = 1,
 #'                   max_runtime_secs = 60)
 #'
 #' # evaluate the model performance
