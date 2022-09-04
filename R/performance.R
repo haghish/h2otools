@@ -1,3 +1,15 @@
+#' @title provides performance measures
+#' @description takes h2o performance object of class "H2OBinomialMetrics"
+#'              alongside caret confusion matrix and provides different
+#'              model performance measures supported by h2o and caret
+#' @param perf h2o performance object of class "H2OBinomialMetrics"
+#' @param conf caret confusion matrix
+#' @param print logical. if TRUE, results are printed in the console
+#' @return numeric vector
+#' @author E. F. Haghish
+#' @keywords Internal
+#' @noRd
+
 # R define h2o.performance2 function
 # ============================================================
 performance <- function(perf, conf, print = TRUE) {
@@ -10,6 +22,6 @@ performance <- function(perf, conf, print = TRUE) {
   vals <- unlist(c(prauc, f2[3], mcc[3]))
   vals <- c(vals, conf$overall[2], conf$byClass[2], conf$byClass[1], auc, accuracy)
   names(vals) <- names
-  if (print) print(vals)
+  if (print) cat(vals, "\n")
   return(vals)
 }

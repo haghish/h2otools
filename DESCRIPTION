@@ -1,11 +1,20 @@
 Package: h2otools
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Toolkit for H2O.ai Machine Learning Software
+Version: 0.0.1
+Authors@R: 
+    person("E. F. Haghish",
+           role = c("aut", "cre", "cph"),
+           email = "haghish@uio.no")
+Depends: 
+    R (>= 3.5.0)
+Description: Several functions are provided that simplify using H2O.ai 
+             R package
+License: MIT + file LICENSE
 Encoding: UTF-8
+Imports:
+    h2o (>= 3.34.0.0)
+RoxygenNote: 7.2.1
 LazyData: true
+URL: https://github.com/haghish/h2otools, https://www.sv.uio.no/psi/english/people/aca/haghish/
+BugReports: https://github.com/haghish/h2otools/issues
