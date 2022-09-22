@@ -1,6 +1,6 @@
 #' @title F-Measure
 #' @description Calculates F-Measure for any given value of Beta
-#' @importFrom utils setTxtProgressBar txtProgressBar capture.output packageVersion
+#' @importFrom utils setTxtProgressBar txtProgressBar
 #' @importFrom h2o h2o.precision h2o.recall
 #' @importFrom curl curl
 #' @param perf a h2o object of class \code{"H2OBinomialMetrics"} which is provided
@@ -38,9 +38,9 @@
 #' @export
 
 Fmeasure <- function(perf, beta = 1, max = FALSE) {
-  threshold <- h2o.precision(perf)[,1]
-  precision <- h2o.precision(perf)[,2]
-  recall    <- h2o.recall(perf)[,2]
+  threshold <- h2o::h2o.precision(perf)[,1]
+  precision <- h2o::h2o.precision(perf)[,2]
+  recall    <- h2o::h2o.recall(perf)[,2]
   f <- ((1+beta^2)*(precision*recall)) / ((beta^2*precision)+recall)
   if (max) {
     return(max(f, na.rm = TRUE))

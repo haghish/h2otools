@@ -1,6 +1,6 @@
 Package: h2otools
 Type: Package
-Title: Toolkit for H2O.ai Machine Learning Software
+Title: Machine Learning Model Evaluation for 'h2o' Package
 Version: 0.0.1
 Authors@R: 
     person("E. F. Haghish",
@@ -8,12 +8,16 @@ Authors@R:
            email = "haghish@uio.no")
 Depends: 
     R (>= 3.5.0)
-Description: Several functions are provided that simplify using H2O.ai 
-             R package
+Description: Several functions are provided that simplify using 'h2o' 
+             package. Currently, a function for extracting the AutoML 
+             model parameter is provided, alongside a function for computing 
+             F-Measure statistics at any given threshold. For more information 
+             about 'h2o' package see <https://h2o.ai/>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
-    h2o (>= 3.34.0.0)
+    h2o (>= 3.34.0.0),
+    curl
 RoxygenNote: 7.2.1
 LazyData: true
 URL: https://github.com/haghish/h2otools, https://www.sv.uio.no/psi/english/people/aca/haghish/
