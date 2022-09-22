@@ -3,8 +3,6 @@
 #'              alongside caret confusion matrix and provides different
 #'              model performance measures supported by h2o and caret
 #' @param perf h2o performance object of class "H2OBinomialMetrics"
-#' @param conf caret confusion matrix object.
-#' @param print logical. if TRUE, results are printed in the console
 #' @return numeric vector
 #' @author E. F. Haghish
 #' @export
