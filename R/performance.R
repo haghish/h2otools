@@ -19,19 +19,30 @@
 #' # evaluate the model performance
 #' perf <- h2o.performance(aml@leader, xval = TRUE)
 #'
-#' # evaluate F-Measure for a Beta = 3
-#' Fmeasure(perf, beta = 3, max = TRUE)
-#'
-#' # evaluate F-Measure for a Beta = 1.5
-#' Fmeasure(perf, beta = 1.5, max = TRUE)
-#'
-#' # evaluate F-Measure for a Beta = 4
-#' Fmeasure(perf, beta = 4, max = TRUE)
+#' # compute more performance measures
+#' performance(perf)
 #'
 #' }
 #' @export
 
-# # R define h2o.performance2 function
+
+performance <- function(perf) {
+  auc <- perf@metrics$AUC                                # auc
+  mean_per_class_error <- perf@metrics$mean_per_class_error                            # accuracy
+  prauc <- perf@metrics$pr_auc                           # aucpr
+  f2 <- perf@metrics$max_criteria_and_metric_scores[2,]  # f2
+  mcc <- perf@metrics$max_criteria_and_metric_scores[8,] # mcc
+  names <- c("aucpr_eval", "f2_eval", "mcc_eval", "auc","mean_per_class_error")
+  vals <- unlist(c(prauc, f2[3], mcc[3]))
+  vals <- c(vals, auc, mean_per_class_error)
+  names(vals) <- names
+  return(vals)
+}
+
+
+
+
+# # R define h2o.performance2 function (old version)
 # # ============================================================
 # performance <- function(perf, conf, print = TRUE) {
 #   auc <- perf@metrics$AUC                                # auc
@@ -46,16 +57,3 @@
 #   if (print) cat(vals, "\n")
 #   return(vals)
 # }
-
-performance <- function(perf) {
-  auc <- perf@metrics$AUC                                # auc
-  mean_per_class_error <- perf@metrics$mean_per_class_error                            # accuracy
-  prauc <- perf@metrics$pr_auc                           # aucpr
-  f2 <- perf@metrics$max_criteria_and_metric_scores[2,]  # f2
-  mcc <- perf@metrics$max_criteria_and_metric_scores[8,] # mcc
-  names <- c("aucpr_eval", "f2_eval", "mcc_eval", "auc","mean_per_class_error")
-  vals <- unlist(c(prauc, f2[3], mcc[3]))
-  vals <- c(vals, auc, mean_per_class_error)
-  names(vals) <- names
-  return(vals)
-}
