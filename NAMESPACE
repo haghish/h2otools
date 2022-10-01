@@ -2,6 +2,7 @@
 
 export(Fmeasure)
 export(automlModelParam)
+export(checkFrame)
 export(performance)
 importFrom(curl,curl)
 importFrom(h2o,h2o.precision)
