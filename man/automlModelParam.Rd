@@ -16,7 +16,7 @@ a dataframe of models' parameters
 Extracts models' parameters from AutoML grid
 }
 \examples{
-\donttest{
+\donotrun{
 if(requireNamespace("h2o")) {
   library(h2o)
   h2o.init(ignore_config = TRUE, nthreads = 2, bind_to_localhost = FALSE, insecure = TRUE)

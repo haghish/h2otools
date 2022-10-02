@@ -14,17 +14,16 @@
 #'
 #' @examples
 #'
-#' \donttest{
 #' library(h2otools)
 #' data(cars)
 #'
 #' # no error is expected because 'cars' dataset does not
 #' # have 'ordered' or 'character' columns
 #' checkFrame(cars)
-#' }
 #' @export
 
-checkFrame <- function(df, ignore = NULL,
+checkFrame <- function(df,
+                       ignore = NULL,
                        is.df=TRUE,
                        no.char=TRUE,
                        no.ordered=TRUE) {

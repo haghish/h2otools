@@ -29,14 +29,12 @@ checks the class of the input data.frame, makes sure that
 }
 \examples{
 
-\donttest{
 library(h2otools)
 data(cars)
 
 # no error is expected because 'cars' dataset does not
 # have 'ordered' or 'character' columns
 checkFrame(cars)
-}
 }
 \author{
 E. F. Haghish
