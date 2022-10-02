@@ -28,8 +28,6 @@ checks the class of the input data.frame, makes sure that
              compatible with h2o R package.
 }
 \examples{
-
-library(h2otools)
 data(cars)
 
 # no error is expected because 'cars' dataset does not

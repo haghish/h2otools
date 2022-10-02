@@ -13,8 +13,6 @@
 #' @author E. F. Haghish
 #'
 #' @examples
-#'
-#' library(h2otools)
 #' data(cars)
 #'
 #' # no error is expected because 'cars' dataset does not

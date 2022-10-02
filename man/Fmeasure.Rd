@@ -23,7 +23,7 @@ Calculates F-Measure for any given value of Beta
 }
 \examples{
 
-\donotrun{
+\dontrun{
 library(h2o)
 h2o.init(ignore_config = TRUE, nthreads = 2, bind_to_localhost = FALSE, insecure = TRUE)
 prostate_path <- system.file("extdata", "prostate.csv", package = "h2o")
