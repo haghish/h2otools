@@ -3,6 +3,8 @@
 export(Fmeasure)
 export(automlModelParam)
 export(checkFrame)
+export(getPerfMatrix)
+export(kappa)
 export(performance)
 importFrom(curl,curl)
 importFrom(h2o,h2o.precision)
