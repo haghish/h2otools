@@ -28,13 +28,14 @@
 
 performance <- function(perf) {
   auc <- perf@metrics$AUC                                # auc
-  mean_per_class_error <- perf@metrics$mean_per_class_error                            # accuracy
+  mean_per_class_error <- perf@metrics$mean_per_class_error # mpce
   prauc <- perf@metrics$pr_auc                           # aucpr
   f2 <- perf@metrics$max_criteria_and_metric_scores[2,]  # f2
   mcc <- perf@metrics$max_criteria_and_metric_scores[8,] # mcc
-  names <- c("aucpr_eval", "f2_eval", "mcc_eval", "auc","mean_per_class_error")
+  kappa <- kappa(perf = perf, max=TRUE)
+  names <- c("aucpr", "f2", "mcc", "kappa","auc","mean_per_class_error")
   vals <- unlist(c(prauc, f2[3], mcc[3]))
-  vals <- c(vals, auc, mean_per_class_error)
+  vals <- c(vals, kappa, auc, mean_per_class_error)
   names(vals) <- names
   return(vals)
 }
