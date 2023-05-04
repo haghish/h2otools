@@ -1,7 +1,7 @@
 Package: h2otools
 Type: Package
 Title: Machine Learning Model Evaluation for 'h2o' Package
-Version: 0.2
+Version: 0.3
 Authors@R: 
     person("E. F. Haghish",
            role = c("aut", "cre", "cph"),
@@ -17,7 +17,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
     h2o (>= 3.34.0.0),
-    curl
+    curl,
+    boot
 RoxygenNote: 7.2.1
 LazyData: true
 URL: https://github.com/haghish/h2otools, https://www.sv.uio.no/psi/english/people/aca/haghish/

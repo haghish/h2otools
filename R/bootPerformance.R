@@ -3,9 +3,14 @@
 #' @importFrom h2o as.h2o h2o.performance h2o.getFrame
 #' @importFrom boot boot boot.ci
 #' @importFrom curl curl
+#' @importFrom stats sd
 #' @param df training, validation, or testing dataset to bootstrap from
 #' @param model a model trained by h2o machine learning software
-#' @param nboot number of bootstraps
+#' @param metric character. model evaluation metric to be passed to boot R package.
+#'               this could be, for example "AUC", "AUCPR", RMSE", etc., depending
+#'               of the model you have trained. all evaluation metrics provided
+#'               for your H2O models can be specified here.
+#' @param n number of bootstraps
 #' @return list of mean perforance of the specified metric and other bootstrap results
 #' @author E. F. Haghish
 #'

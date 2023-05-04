@@ -1,4 +1,4 @@
-#' @title provides performance measures using objects from h2o and caret package
+#' @title provides performance measures using objects from h2o
 #' @description takes h2o performance object of class "H2OBinomialMetrics"
 #'              alongside caret confusion matrix and provides different
 #'              model performance measures supported by h2o and caret

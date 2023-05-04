@@ -2,7 +2,7 @@
 % Please edit documentation in R/performance.R
 \name{performance}
 \alias{performance}
-\title{provides performance measures using objects from h2o and caret package}
+\title{provides performance measures using objects from h2o}
 \usage{
 performance(perf)
 }
