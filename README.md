@@ -18,7 +18,7 @@ These functions are briefly described below:
 Function           | Description
 ------------------ | -----------
 `automlModelParam` | for extracting model parameters from AutoML grid
-`bootperformance`  | Bootstrap performance ealuation
+`bootperformance`  | Bootstrap performance evaluation
 `Fmeasure`         | for evaluating `F3`, `F4`, `F5`, or any _beta_ value. `h2o` only provides `F0.5`, `F1`, and `F2`
 `getPerfMatrix`    | retrieve performance matrix for all thresholds 
 `kappa`            | Calculates kappa for all thresholds
