@@ -5,21 +5,27 @@ Version: 0.4
 Authors@R: 
     person("E. F. Haghish",
            role = c("aut", "cre", "cph"),
-           email = "haghish@uio.no")
+           email = "haghish@hotmail.com")
 Depends: 
     R (>= 3.5.0)
-Description: Several functions are provided that simplify using 'h2o' 
-             package. Currently, a function for extracting the AutoML 
-             model parameter is provided, alongside a function for computing 
-             F-Measure statistics at any given threshold. For more information 
-             about 'h2o' package see <https://h2o.ai/>.
+Description: 
+  In the process of model selection, the common practice is to select
+  a model with the higher performance. However, the fine-tuning
+  process might tune multiple models with negligible performance
+  differences. This software provides a statistical procedure for
+  comparing the performance of machine learning models using a
+  bootstrapping technique to assess significant differences between
+  models' performances. Additionally, it offers extra performance
+  metrics such as the F-Measure and additional functionalities for
+  working with the H2O AI software package. For more information
+  about the 'h2o' package, visit https://h2o.ai/.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
     h2o (>= 3.34.0.0),
     curl,
     boot
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
 LazyData: true
 URL: https://github.com/haghish/h2otools, https://www.sv.uio.no/psi/english/people/academic/haghish/
 BugReports: https://github.com/haghish/h2otools/issues
